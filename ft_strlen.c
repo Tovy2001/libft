@@ -6,7 +6,7 @@
 /*   By: tren <tren@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/03 17:41:31 by tren              #+#    #+#             */
-/*   Updated: 2020/09/03 17:45:17 by tren             ###   ########.fr       */
+/*   Updated: 2020/09/21 15:27:22 by tren             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ size_t	ft_strlen(const char *s)
 	unsigned int	i;
 
 	i = 0;
-	if (!s)
-		return (0);
 	while (s[i] != '\0')
 		i++;
 	return (i);

@@ -6,7 +6,7 @@
 /*   By: tren <tren@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/10 14:59:02 by tren              #+#    #+#             */
-/*   Updated: 2020/09/10 15:10:54 by tren             ###   ########.fr       */
+/*   Updated: 2020/09/21 15:49:25 by tren             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	unsigned int	s_len;
 	char			*substr;
 
-	if (!s)
-		return (NULL);
 	s_len = ft_strlen(s);
 	if (s_len < start)
 	{

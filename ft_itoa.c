@@ -6,55 +6,49 @@
 /*   By: tren <tren@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 11:45:42 by tren              #+#    #+#             */
-/*   Updated: 2020/09/18 16:47:54 by tren             ###   ########.fr       */
+/*   Updated: 2020/09/21 15:47:38 by tren             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		length(int n)
+int					lon(unsigned int nbr)
 {
-	int	len;
+	int				len;
 
 	len = 0;
-	if (n == -2147483648)
-		return (12);
-	else if (n == 0)
-		return (2);
-	if (n < 0)
+	while (nbr >= 10)
 	{
+		nbr /= 10;
 		len++;
-		n = n * -1;
-	}
-	while (n)
-	{
-		len++;
-		n /= 10;
 	}
 	return (len + 1);
 }
 
-char	*ft_itoa(int n)
+char				*ft_itoa(int n)
 {
 	unsigned int	nbr;
-	int				sign;
 	int				len;
-	char			*dest;
+	char			*alpha;
 
-	sign = (n < 0 ? 1 : 0);
-	dest = NULL;
-	len = length(n);
-	nbr = (n < 0 ? -n : n);
-	if (!(dest = (char*)malloc(sizeof(char) * len + 1)))
-		return (NULL);
-	dest[len--] = '\0';
-	while (len >= 0)
+	len = 0;
+	nbr = n;
+	if (n < 0)
 	{
-		dest[len] = nbr % 10 + '0';
-		nbr = nbr / 10;
-		len--;
+		nbr = n * -1;
+		len++;
 	}
-	if (sign == 1)
-		dest[0] = '-';
-	return (dest);
+	len += lon(nbr);
+	if (!(alpha = (char*)malloc(sizeof(char) * len + 1)))
+		return (NULL);
+	alpha[len] = '\0';
+	while (len)
+	{
+		len--;
+		alpha[len] = nbr % 10 + '0';
+		nbr = nbr / 10;
+	}
+	if (n < 0)
+		alpha[0] = '-';
+	return (alpha);
 }

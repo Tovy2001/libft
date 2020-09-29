@@ -6,7 +6,7 @@
 /*   By: tren <tren@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/06 18:16:21 by tren              #+#    #+#             */
-/*   Updated: 2020/09/06 18:29:48 by tren             ###   ########.fr       */
+/*   Updated: 2020/09/21 15:28:13 by tren             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ char	*ft_strchr(const char *s, int c)
 		i++;
 	}
 	if (s[i] == (char)c)
-		return ((char *)s + 1);
+		return ((char *)s + i);
 	return (NULL);
 }
