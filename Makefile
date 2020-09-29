@@ -6,7 +6,7 @@
 #    By: tren <tren@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/18 15:23:45 by tren              #+#    #+#              #
-#    Updated: 2020/09/29 09:44:54 by tren             ###   ########.fr        #
+#    Updated: 2020/09/29 12:41:47 by tren             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,12 +21,14 @@ SRCS		=	ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c \
 			ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c \
 			ft_itoa.c ft_strmapi.c ft_putchar_fd.c ft_putstr_fd.c \
 			ft_putendl_fd.c ft_putnbr_fd.c \
-			\
-			ft_lstnew.c ft_lstsize.c ft_lstadd_back.c ft_lstlast.c \
+
+SRCS_BONUS	=	ft_lstnew.c ft_lstsize.c ft_lstadd_back.c ft_lstlast.c \
 			ft_lstadd_front.c ft_lstdelone.c ft_lstclear.c \
 			ft_lstiter.c ft_lstmap.c \
 
 OBJS		=	${SRCS:.c=.o}
+
+OBJS_BONUS	=	${SRCS_BONUS:.c=.o}
 
 CC		=	gcc
 
@@ -42,8 +44,11 @@ $(NAME):		${OBJS}
 
 all:			${NAME}
 
+bonus:			${OBJS} ${OBJS_BONUS}
+			ar rcs ${NAME} ${OBJS} ${OBJS_BONUS}
+
 clean:
-			${RM} ${OBJS}
+			${RM} ${OBJS} ${OBJS_BONUS}
 
 fclean:			clean
 			${RM} ${NAME}
